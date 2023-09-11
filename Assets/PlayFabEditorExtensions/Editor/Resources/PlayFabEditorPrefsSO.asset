@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: Valder1984@gmail.com
-  DevAccountToken: 3b4yn3f7xiaq4zi5kercsgpxnmnz14abyn7sknzrw3fpprapx35gw38bqcejw7qgeksq5or8o8qceeghr3su6ttd5tpx9p66ip6wukdkt7j9ufu6ha5p4xmdih14ktom8igu9y9zs5wbn1n84gi44fuuixxnpao7jzurjgxrod9diuktj6kn9gxca8w63ete8qga5s7h
+  DevAccountToken: ngokqam388gpj5ru1nghq94yawjkmwozc75paxwzibeknt7bmq865qqzfg7cmg44ij48yxjkbqeajxwhy59efksuzq1ytpf7x1bax3aipixdsd4fwtiy88xmdqhxpipdifb4kw79bnjxtekrbeq17w5ig7ut1srqsq73riy6jkuisi6kbsobjup3bobqxsmwqrwu6k14
   AadAuthorization: 
-  SelectedStudio: BolbatINC
+  SelectedStudio: 
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
-  LocalCloudScriptPath: 
+  LocalCloudScriptPath: D:/GB/C#_2/rep/BolbatNetWorkGame/NetWorkGame/Assets/PlayFabEditorExtensions/Editor/Resources/.CloudScript.js
   PanelIsShown: 0
   curMainMenuIdx: 1
-  curSubMenuIdx: 0
+  curSubMenuIdx: 2

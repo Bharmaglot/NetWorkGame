@@ -1,0 +1,150 @@
+{
+  "CatalogVersion": "main",
+  "Catalog": [
+    {
+      "ItemId": "wooden_sword_id",
+      "ItemClass": "sword",
+      "CatalogVersion": "main",
+      "DisplayName": "wood sword",
+      "Description": "Real wood sword!",
+      "VirtualCurrencyPrices": {
+        "WC": 100
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "\"sword",
+        "weapon\""
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "wooden_potion_id",
+      "ItemClass": "potion",
+      "CatalogVersion": "main",
+      "DisplayName": "wood potion",
+      "Description": "Berezoviy sok!",
+      "VirtualCurrencyPrices": {
+        "WC": 10
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "potion"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": true,
+      "IsTradable": false,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "wooden_helm_id",
+      "ItemClass": "helm",
+      "CatalogVersion": "main",
+      "DisplayName": "wood helm",
+      "Description": null,
+      "VirtualCurrencyPrices": {
+        "WC": 60
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "helm",
+        "armor"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    },
+    {
+      "ItemId": "wooden_armor_id",
+      "ItemClass": "armor",
+      "CatalogVersion": "main",
+      "DisplayName": "wood armor",
+      "Description": "Special from Diogen!",
+      "VirtualCurrencyPrices": {
+        "WC": 150
+      },
+      "RealCurrencyPrices": {},
+      "Tags": [
+        "armor"
+      ],
+      "CustomData": null,
+      "Consumable": {
+        "UsageCount": null,
+        "UsagePeriod": null,
+        "UsagePeriodGroup": null
+      },
+      "Container": null,
+      "Bundle": null,
+      "CanBecomeCharacter": false,
+      "IsStackable": false,
+      "IsTradable": true,
+      "ItemImageUrl": null,
+      "IsLimitedEdition": false,
+      "InitialLimitedEditionCount": 0,
+      "ActivatedMembership": null
+    }
+  ],
+  "DropTables": [
+    {
+      "TableId": "Table_id",
+      "Nodes": [
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "wooden_sword_id",
+          "Weight": 1
+        },
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "wooden_potion_id",
+          "Weight": 1
+        },
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "wooden_armor_id",
+          "Weight": 1
+        },
+        {
+          "ResultItemType": "ItemId",
+          "ResultItem": "wooden_helm_id",
+          "Weight": 1
+        }
+      ]
+    }
+  ]
+}
