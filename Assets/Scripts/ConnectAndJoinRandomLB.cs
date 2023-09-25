@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,7 +18,7 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
 
     [SerializeField] private Button _closeRoomButton;
     [SerializeField] private Button _startGameButton;
-    [SerializeField] private TMP_Text _textCloseRoomButton;
+    [SerializeField] private TMP_Text _closeRoomButtonText;
     [SerializeField] private TMP_InputField _nameRoomInputField;
     [SerializeField] private Button _connectToInvisibleRoomButton;
 
@@ -30,6 +31,8 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
     private TypedLobby customLobby = new TypedLobby("customLobby", LobbyType.Default);
 
     private List<ListItem> listItems = new List<ListItem>();
+
+    private bool _clientIsConnected = false;
 
 
     private void Start()
@@ -52,6 +55,7 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
         _startGameButton.gameObject.SetActive(false);
         _createIvisibleRoomButton.gameObject.SetActive(false);
         _connectToInvisibleRoomButton.gameObject.SetActive(false);
+        _nameRoomInputField.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -63,6 +67,35 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
 
         var state = _lbc.State.ToString();
         _stateUiText.text = state;
+
+        if (_clientIsConnected == false) CheckConnectionForActiveUI();
+    }
+
+    private void DeactiveAllButtons()
+    {
+        if (_createRoomButton.gameObject.activeSelf) _createRoomButton.gameObject.SetActive(false);
+        if (_leaveRoomButton.gameObject.activeSelf) _leaveRoomButton.gameObject.SetActive(false);
+        if (_closeRoomButton.gameObject.activeSelf) _closeRoomButton.gameObject.SetActive(false);
+        if (_startGameButton.gameObject.activeSelf) _startGameButton.gameObject.SetActive(false);
+        if (_createIvisibleRoomButton.gameObject.activeSelf) _createIvisibleRoomButton.gameObject.SetActive(false);
+        if (_connectToInvisibleRoomButton.gameObject.activeSelf) _connectToInvisibleRoomButton.gameObject.SetActive(false);
+        if (_nameRoomInputField.gameObject.activeSelf) _nameRoomInputField.gameObject.SetActive(false);
+    }
+
+    private void ActiveMainButtons()
+    {
+        _createRoomButton.gameObject.SetActive(true);
+        _createIvisibleRoomButton.gameObject.SetActive(true);
+        _connectToInvisibleRoomButton.gameObject.SetActive(true);
+        _nameRoomInputField.gameObject.SetActive(true);
+    }
+    private void CheckConnectionForActiveUI()
+    {
+        if(_lbc.InLobby)
+        {
+            ActiveMainButtons();
+            _clientIsConnected = true;
+        }
     }
 
     private void OnDestroy()
@@ -81,6 +114,10 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
     {
         EnterRoomParams enterRoomParams = new EnterRoomParams();
         _lbc.OpCreateRoom(enterRoomParams);
+
+        DeactiveAllButtons();
+        _leaveRoomButton.gameObject.SetActive(true);
+        _closeRoomButton.gameObject.SetActive(true);
     }
 
     private void PressCreateInvisibleRoom()
@@ -93,8 +130,9 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
             enterRoomParams.RoomOptions = roomOptions;
             enterRoomParams.RoomName = _nameRoomInputField.text;
             _lbc.OpCreateRoom(enterRoomParams);
-            _connectToInvisibleRoomButton.gameObject.SetActive(false);
-            _createIvisibleRoomButton.gameObject.SetActive(false);
+
+            DeactiveAllButtons();
+
             _leaveRoomButton.gameObject.SetActive(true);
             _closeRoomButton.gameObject.SetActive(true);
         }
@@ -111,9 +149,17 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
             EnterRoomParams enterRoomParams = new EnterRoomParams();
             enterRoomParams.RoomName = _nameRoomInputField.text;
             _lbc.OpJoinRoom(enterRoomParams);
-            _leaveRoomButton.gameObject.SetActive(true);
-            _connectToInvisibleRoomButton.gameObject.SetActive(false);
-            _createIvisibleRoomButton.gameObject.SetActive(false);
+
+            if (_lbc.InRoom)
+            {
+                DeactiveAllButtons();
+
+                _leaveRoomButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("WrongName");
+            }
         }
         else
         {
@@ -127,19 +173,21 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
         EnterRoomParams enterRoomParams = new EnterRoomParams();
         enterRoomParams.RoomName = info.Name;
         _lbc.OpJoinRoom(enterRoomParams);
+
+
+        DeactiveAllButtons();
+
         _leaveRoomButton.gameObject.SetActive(true);
     }
 
     private void PressLeaveFromRoom()
     {
-        _leaveRoomButton.gameObject.SetActive(false);
-        _createRoomButton.gameObject.SetActive(true);
-        _createIvisibleRoomButton.gameObject.SetActive(true);
-        _connectToInvisibleRoomButton.gameObject.SetActive(true);
+        DeactiveAllButtons();
+        ActiveMainButtons();
         _lbc.OpLeaveRoom(true);
     }
 
-    private void PressConnectToLobby()
+    private void ConnectToLobby()
     {
         _lbc.OpJoinLobby(customLobby);
     }
@@ -147,26 +195,29 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
     private void PressToCloseRoom()
     {
         _lbc.CurrentRoom.IsOpen = false;
-        _textCloseRoomButton.text = "Open Room";
+        _closeRoomButtonText.text = "Open Room";
         _closeRoomButton.onClick.RemoveAllListeners();
         _closeRoomButton.onClick.AddListener(PressToOpenRoom);
+
         _startGameButton.gameObject.SetActive(true);
+        _leaveRoomButton.gameObject.SetActive(false);
     }
 
     private void PressToOpenRoom()
     {
         _lbc.CurrentRoom.IsOpen = true;
-        _textCloseRoomButton.text = "Close Room";
+        _closeRoomButtonText.text = "Close Room";
         _closeRoomButton.onClick.RemoveAllListeners();
         _closeRoomButton.onClick.AddListener(PressToCloseRoom);
+
         _startGameButton.gameObject.SetActive(false);
-
-
+        _leaveRoomButton.gameObject.SetActive(true);
     }
 
+   
     private void PressToStartGame()
     {
-        PhotonNetwork.LoadLevel("PhotonGame");
+         PhotonNetwork.LoadLevel("PhotonGame");
     }
 
     public void OnConnected()
@@ -176,20 +227,12 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
 
     public void OnConnectedToMaster()
     {
-        _createRoomButton.gameObject.SetActive(true);
-        _createIvisibleRoomButton.gameObject.SetActive(true);
-        _connectToInvisibleRoomButton.gameObject.SetActive(true);
-        PressConnectToLobby();
-
+        ConnectToLobby();
     }
 
     public void OnCreatedRoom()
     {
-        _createRoomButton.gameObject.SetActive(false);
-        _leaveRoomButton.gameObject.SetActive(true);
-        _closeRoomButton.gameObject.SetActive(true);
-        _createIvisibleRoomButton.gameObject.SetActive(false);
-        _connectToInvisibleRoomButton.gameObject.SetActive(false);
+
     }
 
     public void OnCreateRoomFailed(short returnCode, string message)
@@ -224,11 +267,7 @@ public class ConnectAndJoinRandomLB : MonoBehaviour, IConnectionCallbacks, IMatc
 
     public void OnJoinedRoom()
     {
-        Debug.Log($"OnJoinedRoom");
-        _leaveRoomButton.gameObject.SetActive(true);
-        _createRoomButton.gameObject.SetActive(false);
-        _createIvisibleRoomButton.gameObject.SetActive(false);
-        _connectToInvisibleRoomButton.gameObject.SetActive(false);
+        Debug.Log($"OnJoinedRoom {_lbc.CurrentRoom.PlayerCount}");
     }
 
     public void OnJoinRandomFailed(short returnCode, string message)

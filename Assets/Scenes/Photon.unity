@@ -607,6 +607,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296917596}
   m_CullTransparentMesh: 1
+--- !u!1 &337157667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337157668}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &337157668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337157667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4889839, y: 0.700705, z: 1.6112504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410851533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,7 +2084,7 @@ GameObject:
   - component: {fileID: 1353998135}
   - component: {fileID: 1353998134}
   - component: {fileID: 1353998133}
-  - component: {fileID: 1353998137}
+  - component: {fileID: 1353998138}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2145,7 +2176,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1353998137
+--- !u!114 &1353998138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2154,21 +2185,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353998132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd57aaace7bc69459726fb5b7fc27de, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e718a50ae978794bbf3326769f06e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serverSetting: {fileID: 11400000, guid: 224bfb40ca7143b40853b257e77001a5, type: 2}
   _stateUiText: {fileID: 927624388}
   _createRoomButton: {fileID: 2090603163}
   _createIvisibleRoomButton: {fileID: 131075548}
   _leaveRoomButton: {fileID: 1699326939}
   _closeRoomButton: {fileID: 1602561336}
   _startGameButton: {fileID: 156835350}
-  _textCloseRoomButton: {fileID: 854972123}
+  _closeRoomButtonText: {fileID: 854972123}
   _nameRoomInputField: {fileID: 1266087051}
   _connectToInvisibleRoomButton: {fileID: 935674741}
   _roomItemPrefab: {fileID: 4325986791320816892, guid: ec857179037351849b813e8bc090d443, type: 3}
   _roomsWindow: {fileID: 457660500}
+  _maxPlayer: 4
 --- !u!1 &1382324318
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,22 @@ namespace Photon.Pun.Demo.PunBasics
         [SerializeField]
         private GameObject beams;
 
+        private float _id;
+
+        private Quaternion _unitRotation;
+
+        public float Id
+        {
+            get => photonView.ViewID;
+            set => _id = value;
+        }
+
+        public Quaternion UnitRotation
+        {
+            get => photonView.transform.rotation;
+            set => _unitRotation = value;
+        }
+
         //True, when the user is firing
         bool IsFiring;
 
@@ -281,12 +297,16 @@ namespace Photon.Pun.Demo.PunBasics
                 // We own this player: send the others our data
                 stream.SendNext(this.IsFiring);
                 stream.SendNext(this.Health);
+                stream.SendNext(this.Id);
+                stream.SendNext(this.UnitRotation);
             }
             else
             {
                 // Network player, receive data
                 this.IsFiring = (bool)stream.ReceiveNext();
                 this.Health = (float)stream.ReceiveNext();
+                this.Id = (float)stream.ReceiveNext();
+                this.UnitRotation = (Quaternion)stream.ReceiveNext();
             }
         }
 

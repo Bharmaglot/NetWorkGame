@@ -880,6 +880,10 @@
       <Project>{1D940F86-B15B-A37E-BB9A-1498683E7C2F}</Project>
       <Name>Unity.VisualScripting.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="ParrelSync.csproj">
+      <Project>{6B458679-DE2E-40C6-0808-C55B6495AE02}</Project>
+      <Name>ParrelSync</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{BFD64D21-7C28-1BE2-381F-299E02B35387}</Project>
       <Name>PhotonUnityNetworking</Name>

@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Editor"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.TestTools.CodeCoverage.Editor", "Unity.TestTools.CodeCoverage.Editor.csproj", "{C46AE709-893F-E539-7B7D-C96BE0339FEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParrelSync", "ParrelSync.csproj", "{6B458679-DE2E-40C6-0808-C55B6495AE02}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Rider.Editor", "Unity.Rider.Editor.csproj", "{CE5DC552-1365-6945-A9C1-6B64F765559C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Performance.Profile-Analyzer.Editor", "Unity.Performance.Profile-Analyzer.Editor.csproj", "{4CC8C588-3041-593E-6B02-584240B140C8}"
@@ -275,6 +277,10 @@ Global
 		{C46AE709-893F-E539-7B7D-C96BE0339FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46AE709-893F-E539-7B7D-C96BE0339FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46AE709-893F-E539-7B7D-C96BE0339FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B458679-DE2E-40C6-0808-C55B6495AE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B458679-DE2E-40C6-0808-C55B6495AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B458679-DE2E-40C6-0808-C55B6495AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B458679-DE2E-40C6-0808-C55B6495AE02}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE5DC552-1365-6945-A9C1-6B64F765559C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE5DC552-1365-6945-A9C1-6B64F765559C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE5DC552-1365-6945-A9C1-6B64F765559C}.Release|Any CPU.ActiveCfg = Release|Any CPU
