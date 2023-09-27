@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\AccountDataWindowBase.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Scripts\SecondConnectAndJoinRandomLB.cs" />
+    <Compile Include="Assets\Scripts\SlotCharacterWidget.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\ConnectAndJoinRandomLB.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />

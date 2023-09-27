@@ -3304,6 +3304,8 @@ namespace PlayFab.ClientModels
         /// created.
         /// </summary>
         public string ItemId;
+
+        public string CharecterName { get; set; }
     }
 
     [Serializable]
